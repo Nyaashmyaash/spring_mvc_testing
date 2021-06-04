@@ -9,8 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 @Controller
 
@@ -21,11 +20,14 @@ public class MyController {
     @RequestMapping("askDetails")
     public String askEmployeeDetails(Model model){
         Employee emp = new Employee();
-        emp.setName("Mike");
-        emp.setSurname("Donalds");
-        emp.setSalary(500);
-        emp.setDepartment("HR");
         model.addAttribute("employee", emp);
+
+        Map<String, String> departmentMap = new HashMap<>();
+        departmentMap.put("IT", "Information Technology");
+        departmentMap.put("Sales", "Sales");
+        departmentMap.put("HR", "Human Resources");
+        model.addAttribute("dept", departmentMap);
+
         return "ask-emp-details-view";
     }
 

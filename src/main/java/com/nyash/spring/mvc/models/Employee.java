@@ -7,7 +7,8 @@ public class Employee {
     private String surname;
     private int salary;
     private String department;
-    private List<String> departments;
+    private String carBrands;
+    private String[] languages;
 
     public Employee() {
     }
@@ -44,6 +45,22 @@ public class Employee {
         this.department = department;
     }
 
+    public String getCarBrands() {
+        return carBrands;
+    }
+
+    public void setCarBrands(String carBrands) {
+        this.carBrands = carBrands;
+    }
+
+    public String[] getLanguages() {
+        return languages;
+    }
+
+    public void setLanguages(String[] languages) {
+        this.languages = languages;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -51,6 +68,8 @@ public class Employee {
                 ", surname='" + surname + '\'' +
                 ", salary=" + salary +
                 ", department='" + department + '\'' +
+                ", carBrands='" + carBrands + '\'' +
+                ", languages=" + Arrays.toString(languages) +
                 '}';
     }
 }

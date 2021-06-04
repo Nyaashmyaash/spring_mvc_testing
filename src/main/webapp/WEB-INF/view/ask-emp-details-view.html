@@ -3,6 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style type="text/css">
+        label{
+            display: inline-block;
+            width: 200px;
+            margin: 5px;
+            text-align: left;
+        }
+        input[type=text]{
+            display: inline-block;
+            width: 200px;
+        }
+        select{
+            display: inline-block;
+            width: 100px;
+        }
+        input[type=radio]{
+            margin-left: 5px;
+        }
+        input[type=checkbox]{
+            margin-left: 5px;
+        }
+        button{
+            padding: 5px;
+            margin: 10px;
+        }
+    </style>
 </head>
 <body>
 <h2>Dear Employee, please enter your details</h2>
@@ -21,16 +47,28 @@
     <input type="text" th:field="*{salary}" id="salary">
     <br>
     <br>
-    Department:
-    <select th:field="*{department}">
-                <option value="Information Technology" label="IT"/>
-                <option value="Sales" label="Sales"/>
-                <option value="Human Resources" label="HR"/>
-<!--        <option th:each="dept : ${employee.departments}"-->
-<!--                th:value="${dept}"-->
-<!--                th:text="${dept}"></option>-->
-
+    <label>Department:</label>
+<!--    <select th:field="*{department}">-->
+<!--                <option value="Information Technology" label="IT"/>-->
+<!--                <option value="Sales" label="Sales"/>-->
+<!--                <option value="Human Resources" label="HR"/>-->
+        <select th:field="*{department}">
+            <option th:each="d : ${dept}" th:value="${d.value}" th:text="${d.key}" />
+        </select>
     </select>
+    <br>
+    <br>
+    <label>Which car do you want?</label>
+
+    <input type="radio" th:field="*{carBrands}" value="BMW">BMW
+    <input type="radio" th:field="*{carBrands}" value="AUDI">AUDI
+    <input type="radio" th:field="*{carBrands}" value="Mercedes-Benz">Mercedes-Benz
+    <br>
+    <br>
+    <label>Foreign languages: </label>
+    <input type="checkbox" th:field="*{languages}" value="EN">EN
+    <input type="checkbox" th:field="*{languages}" value="DE">DE
+    <input type="checkbox" th:field="*{languages}" value="FR">FR
     <br>
     <br>
     <input type="submit" value="Confirm!">
