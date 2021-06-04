@@ -1,13 +1,29 @@
 package com.nyash.spring.mvc.models;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.util.*;
 
 public class Employee {
+
+    @Size(min = 2, max = 20, message = "name must be minimum 2 symbols")
+    @NotEmpty
     private String name;
+
+    @Size(min = 2, max = 20, message = "surname must be minimum 2 symbols")
+    @NotEmpty
     private String surname;
+
+
     private int salary;
+
+
     private String department;
+
+
     private String carBrands;
+
+
     private String[] languages;
 
     public Employee() {
