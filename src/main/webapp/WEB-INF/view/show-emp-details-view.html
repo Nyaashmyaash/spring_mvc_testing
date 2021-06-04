@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Dear Employee, you are WELCOME!</h2>
+<br>
+<p th:text="${'Your name, ' + employee.name}">VALUE</p>
+<p th:text="${'Your surname, ' + employee.surname}">VALUE</p>
+<p th:text="${'Your salary, ' + employee.salary}">VALUE</p>
+<p th:text="${'Your department, ' + employee.department}">VALUE</p>
+<br>
+<br>
+<a href="/askDetails">Back!</a>
+
+</body>
+</html>

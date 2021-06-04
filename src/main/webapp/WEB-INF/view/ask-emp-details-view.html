@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Dear Employee, please enter your details</h2>
+<br>
+<br>
+<form th:method="POST" th:action="@{/showDetails}" th:object="${employee}">
+    <label for="name">Enter name: </label>
+    <input type="text" th:field="*{name}" id="name">
+    <br>
+    <br>
+    <label for="surname">Enter surname: </label>
+    <input type="text" th:field="*{surname}" id="surname">
+    <br>
+    <br>
+    <label for="salary">Enter salary: </label>
+    <input type="text" th:field="*{salary}" id="salary">
+    <br>
+    <br>
+    Department:
+    <select th:field="*{department}">
+                <option value="Information Technology" label="IT"/>
+                <option value="Sales" label="Sales"/>
+                <option value="Human Resources" label="HR"/>
+<!--        <option th:each="dept : ${employee.departments}"-->
+<!--                th:value="${dept}"-->
+<!--                th:text="${dept}"></option>-->
+
+    </select>
+    <br>
+    <br>
+    <input type="submit" value="Confirm!">
+</form>
+
+</body>
+</html>
