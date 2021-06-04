@@ -4,30 +4,39 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style type="text/css">
-        label{
+        label {
             display: inline-block;
             width: 200px;
             margin: 5px;
             text-align: left;
         }
-        input[type=text]{
+
+        input[type=text] {
             display: inline-block;
             width: 200px;
         }
-        select{
+
+        select {
             display: inline-block;
             width: 100px;
         }
-        input[type=radio]{
+
+        input[type=radio] {
             margin-left: 5px;
         }
-        input[type=checkbox]{
+
+        input[type=checkbox] {
             margin-left: 5px;
         }
-        button{
+
+        button {
             padding: 5px;
             margin: 10px;
         }
+        span{
+            alignment: left;
+        }
+
     </style>
 </head>
 <body>
@@ -48,13 +57,12 @@
     <br>
     <br>
     <label>Department:</label>
-<!--    <select th:field="*{department}">-->
-<!--                <option value="Information Technology" label="IT"/>-->
-<!--                <option value="Sales" label="Sales"/>-->
-<!--                <option value="Human Resources" label="HR"/>-->
-        <select th:field="*{department}">
-            <option th:each="d : ${dept}" th:value="${d.value}" th:text="${d.key}" />
-        </select>
+    <!--    <select th:field="*{department}">-->
+    <!--                <option value="Information Technology" label="IT"/>-->
+    <!--                <option value="Sales" label="Sales"/>-->
+    <!--                <option value="Human Resources" label="HR"/>-->
+    <select th:field="*{department}">
+        <option th:each="d : ${dept}" th:value="${d.value}" th:text="${d.key}"/>
     </select>
     <br>
     <br>
@@ -66,9 +74,13 @@
     <br>
     <br>
     <label>Foreign languages: </label>
-    <input type="checkbox" th:field="*{languages}" value="EN">EN
-    <input type="checkbox" th:field="*{languages}" value="DE">DE
-    <input type="checkbox" th:field="*{languages}" value="FR">FR
+    <!--    <input type="checkbox" th:field="*{languages}" value="EN">EN-->
+    <!--    <input type="checkbox" th:field="*{languages}" value="DE">DE-->
+    <!--    <input type="checkbox" th:field="*{languages}" value="FR">FR-->
+    <span th:each="language : ${lang}">
+        <input type="checkbox" th:field="*{languages}" th:value="${language.value}"/>
+        <label th:text="${language.key}"></label>
+    </span>
     <br>
     <br>
     <input type="submit" value="Confirm!">

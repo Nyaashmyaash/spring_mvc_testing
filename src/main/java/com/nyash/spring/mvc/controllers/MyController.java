@@ -28,6 +28,12 @@ public class MyController {
         departmentMap.put("HR", "Human Resources");
         model.addAttribute("dept", departmentMap);
 
+        Map<String, String> languagesMap = new HashMap<>();
+        languagesMap.put("EN", "EN");
+        languagesMap.put("DE", "DE");
+        languagesMap.put("FR", "FR");
+        model.addAttribute("lang", languagesMap);
+
         return "ask-emp-details-view";
     }
 
