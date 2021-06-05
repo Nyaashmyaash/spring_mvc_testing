@@ -26,13 +26,12 @@ public class Employee {
     @Max(value = 1500, message = "must be less than 1501")
     private int salary;
 
-
     private String department;
 
-
+    @NotEmpty(message = "please choose something")
     private String carBrands;
 
-
+    @NotEmpty(message = "please choose something")
     private String[] languages;
 
     Map<String, String> departmentMap;

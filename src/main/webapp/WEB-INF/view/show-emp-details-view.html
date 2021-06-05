@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<h2>Dear Employee, you are WELCOME!</h2>
+<h2><p th:text="${'Dear ' + employee.name + ', you are WELCOME!'}"></p></h2>
 <br>
 <p th:text="${'Your name, ' + employee.name}">VALUE</p>
 <p th:text="${'Your surname, ' + employee.surname}">VALUE</p>
