@@ -62,7 +62,7 @@ public class SpringConfig implements WebMvcConfigurer {
         ComboPooledDataSource dataSource = new ComboPooledDataSource();
         try {
             dataSource.setDriverClass("org.postgresql.Driver");
-            dataSource.setJdbcUrl("jdbc:postgresql://localhost:5432/spring_testing_db?useSSL=false");
+            dataSource.setJdbcUrl("jdbc:postgresql://localhost:5432/spring_hibernate_aop_db?useSSL=false");
             dataSource.setUser("postgres");
             dataSource.setPassword("test");
         } catch (PropertyVetoException e) {
