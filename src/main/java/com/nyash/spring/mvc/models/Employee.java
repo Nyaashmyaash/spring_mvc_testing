@@ -1,20 +1,29 @@
 package com.nyash.spring.mvc.models;
 
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
+import com.nyash.spring.mvc.validation.CheckEmail;
+
+import javax.validation.constraints.*;
 import java.util.*;
 
 public class Employee {
 
     @Size(min = 2, max = 20, message = "name must be minimum 2 symbols")
-    @NotEmpty
+    @NotBlank(message = "name is required field")
     private String name;
 
     @Size(min = 2, max = 20, message = "surname must be minimum 2 symbols")
-    @NotEmpty
+    @NotBlank(message = "surname is required field")
     private String surname;
 
+    @Pattern(regexp = "\\d{3}-\\d{2}-\\d{2}", message = "please use pattern XXX-XX-XX")
+    private String phoneNumber;
 
+    @Email
+    @CheckEmail
+    private String email;
+
+    @Min(value = 500, message = "must be greater than 499")
+    @Max(value = 1500, message = "must be less than 1501")
     private int salary;
 
 
@@ -26,7 +35,20 @@ public class Employee {
 
     private String[] languages;
 
+    Map<String, String> departmentMap;
+
+    Map<String, String> languagesMap;
+
     public Employee() {
+        departmentMap = new HashMap<>();
+        departmentMap.put("IT", "Information Technology");
+        departmentMap.put("Sales", "Sales");
+        departmentMap.put("HR", "Human Resources");
+
+        languagesMap = new HashMap<>();
+        languagesMap.put("EN", "EN");
+        languagesMap.put("DE", "DE");
+        languagesMap.put("FR", "FR");
     }
 
     public String getName() {
@@ -75,6 +97,38 @@ public class Employee {
 
     public void setLanguages(String[] languages) {
         this.languages = languages;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public Map<String, String> getDepartmentMap() {
+        return departmentMap;
+    }
+
+    public void setDepartmentMap(Map<String, String> departmentMap) {
+        this.departmentMap = departmentMap;
+    }
+
+    public Map<String, String> getLanguagesMap() {
+        return languagesMap;
+    }
+
+    public void setLanguagesMap(Map<String, String> languagesMap) {
+        this.languagesMap = languagesMap;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override

@@ -8,25 +8,15 @@
 <h2>Dear Employee, you are WELCOME!</h2>
 <br>
 <p th:text="${'Your name, ' + employee.name}">VALUE</p>
-<div style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{employee.name}"></div>
-<br>
 <p th:text="${'Your surname, ' + employee.surname}">VALUE</p>
-<div style="color: red" th:if="${#fields.hasErrors('surname')}" th:errors="*{employee.surname}"></div>
-<br>
 <p th:text="${'Your salary, ' + employee.salary}">VALUE</p>
-<div style="color: red" th:if="${#fields.hasErrors('salary')}" th:errors="*{employee.salary}"></div>
-<br>
+<p th:text="${'Your phone number, ' + employee.phoneNumber}">VALUE</p>
+<p th:text="${'Your email, ' + employee.email}">VALUE</p>
 <p th:text="${'Your department, ' + employee.department}">VALUE</p>
-<div style="color: red" th:if="${#fields.hasErrors('department')}" th:errors="*{employee.department}"></div>
-<br>
 <p th:text="${'Your car choice, ' + employee.carBrands}">VALUE</p>
-<div style="color: red" th:if="${#fields.hasErrors('carBrands')}" th:errors="*{employee.carBrands}"></div>
-<br>
 <p th:text="${'Foreign languages, ' + employee.languages}">VALUE</p>
-<div style="color: red" th:if="${#fields.hasErrors('languages')}" th:errors="*{employee.languages}"></div>
 <br>
 <br>
 <a href="/askDetails">Back!</a>
-
 </body>
 </html>

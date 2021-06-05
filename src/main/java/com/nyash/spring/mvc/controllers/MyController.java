@@ -21,29 +21,19 @@ public class MyController {
 
     @RequestMapping("askDetails")
     public String askEmployeeDetails(Model model){
+
         Employee emp = new Employee();
         model.addAttribute("employee", emp);
-
-        Map<String, String> departmentMap = new HashMap<>();
-        departmentMap.put("IT", "Information Technology");
-        departmentMap.put("Sales", "Sales");
-        departmentMap.put("HR", "Human Resources");
-        model.addAttribute("dept", departmentMap);
-
-        Map<String, String> languagesMap = new HashMap<>();
-        languagesMap.put("EN", "EN");
-        languagesMap.put("DE", "DE");
-        languagesMap.put("FR", "FR");
-        model.addAttribute("lang", languagesMap);
 
         return "ask-emp-details-view";
     }
 
     @RequestMapping("showDetails")
-    public String showEmpDetails(@Valid @ModelAttribute("employee") Employee emp,  BindingResult bindingResult) {
-        if(bindingResult.hasErrors()) {
+    public String showEmpDetails( @ModelAttribute("employee") @Valid Employee emp, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()){
             return "ask-emp-details-view";
-        } else
+        } else {
             return "show-emp-details-view";
+        }
     }
 }
