@@ -15,13 +15,15 @@
     <th>Salary</th>
     </thead>
 <tbody>
-<tr th:each="emp : ${allEmps}">
-    <td th:text="${emp.name}">name</td>
-    <td th:text="${emp.surname}">surname</td>
-    <td th:text="${emp.department}">department</td>
-    <td th:text="${emp.salary}">salary</td>
+<tr th:each="empl : ${allEmployees}">
+    <td th:text="${empl.name}">name</td>
+    <td th:text="${empl.surname}">surname</td>
+    <td th:text="${empl.department}">department</td>
+    <td th:text="${empl.salary}">salary</td>
 </tr>
 </tbody>
 </table>
+<br>
+<input type="button" value="Add" onclick="window.location.href = 'addNewEmployee'">
 </body>
 </html>
