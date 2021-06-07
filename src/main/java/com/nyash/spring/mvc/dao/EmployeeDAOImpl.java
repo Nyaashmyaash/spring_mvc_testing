@@ -11,8 +11,12 @@ import java.util.List;
 @Repository
 public class EmployeeDAOImpl implements EmployeeDAO {
 
+    private final SessionFactory sessionFactory;
+
     @Autowired
-    private SessionFactory sessionFactory;
+    public EmployeeDAOImpl(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     @Override
     public List<Employee> getAllEmployees() {
