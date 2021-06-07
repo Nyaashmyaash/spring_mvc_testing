@@ -6,6 +6,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -24,6 +25,7 @@ import java.util.Properties;
 @ComponentScan("com.nyash.spring.mvc")
 @EnableWebMvc
 @EnableTransactionManagement
+@EnableAspectJAutoProxy
 public class SpringConfig implements WebMvcConfigurer {
 
     private final ApplicationContext applicationContext;
