@@ -38,4 +38,12 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
        return employee;
     }
+
+    @Override
+    public void deleteEmployee(int id) {
+        Session session = sessionFactory.getCurrentSession();
+        Employee employee = session.get(Employee.class, id);
+        session.delete(employee);
+
+    }
 }

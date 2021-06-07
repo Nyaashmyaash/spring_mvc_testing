@@ -15,8 +15,12 @@ import java.util.List;
 @Controller
 public class EmployeesController {
 
+    private final EmployeeService employeeService;
+
     @Autowired
-    private EmployeeService employeeService;
+    public EmployeesController(EmployeeService employeeService) {
+        this.employeeService = employeeService;
+    }
 
 
     @RequestMapping ("/")
@@ -46,8 +50,9 @@ public class EmployeesController {
         return "employee-info";
     }
 //    @RequestParam("empId") int id,
-    @RequestMapping()
-    public void deleteEmployee(){
-
+    @RequestMapping("/deleteInfo/{id}")
+    public String delete(@PathVariable("id") int id){
+        employeeService.deleteEmployee(id);
+        return "redirect:/";
     }
 }
